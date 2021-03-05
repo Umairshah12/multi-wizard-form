@@ -205,27 +205,22 @@
 }
 
 .file-input {
-  width: 18px;
-  height: 6px;
+  width: 20px;
+  height: 50x;
   opacity: 1;
-  margin-left: 37px !important;
-  margin-top: 37px !important;
+  color: white !;
+  margin-left: 33px !important;
+  margin-top: 18px !important;
   margin-right: 6px !important;
   margin-bottom: 22px !important;
 }
 
 .upload-text {
   width: 238px;
-  height: 18px;
   opacity: 1;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-right: 55px;
   opacity: 1;
   color: #ffffff;
   font-family: TTNorms-Bold;
-  font-size: 16px;
-  text-align: left;
 }
 
 .back-button {
@@ -296,6 +291,7 @@
   height: 50px;
   opacity: 1;
   margin-left: 82px;
+  /* background-color: #efecec; */
   background-color: #006ab3;
   text-align: center;
   justify-content: center;
@@ -327,6 +323,7 @@
   width: 250px !important;
   height: 50px !important;
 }
+
 .sunday-input {
   width: 250px !important;
   height: 50px !important;
@@ -340,12 +337,12 @@
   opacity: 1;
   font-family: TTNorms-Medium;
   font-size: 16px;
-  text-align: left;
+  text-align: center;
   width: 166px;
   height: 50px;
   border-radius: 5%;
   color: #acacac !important;
-  background-color: #d5d8da !important;
+  background-color: #efecec !important;
 }
 
 .list-inputs {
@@ -367,6 +364,7 @@
   height: 50px;
   border-radius: 5%;
   background-color: #006ab3 !important;
+  /* background-color: #d5d8da; */
 }
 
 .other-input {
@@ -374,7 +372,7 @@
   height: 50px !important;
   opacity: 1;
   border-radius: 5%;
-  background-color: #e2e2e2 !important;
+  background-color: #e2e2e2;
 }
 
 .other-input-btn {
@@ -382,14 +380,22 @@
   color: #ffffff !important;
   font-family: TTNorms-Medium;
   font-size: 16px;
-  text-align: left;
+  text-align: center;
   width: 166px;
   height: 50px;
   border-radius: 5%;
   background-color: #006ab3 !important;
+  /* background-color: #e2e2e2 !important; */
 }
+
 .error {
   color: red;
+  font-size: 14px;
+}
+
+.instructions {
+  margin-top: 50px auto;
+  display: flex;
 }
 @keyframes App-logo-spin {
   from {

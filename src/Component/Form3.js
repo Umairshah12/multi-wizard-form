@@ -4,11 +4,14 @@ import TimeRangePicker from "@wojtekmaj/react-timerange-picker";
 import { Grid } from "@material-ui/core";
 
 function Form3(props) {
-  const { values, OnInputChange, errors, onBtnClick, buttonError } = props;
+  const { values, OnInputChange, errors, onBtnClick } = props;
   return (
     <>
       <div className="form-heading">Schedule working days & timings</div>
-      <hr className="form-line" />
+      <div>
+        <hr className="form-line" />
+      </div>
+
       <div className="form-actions">
         <div className="action-list">
           <div className="icon-1">s</div>
@@ -19,7 +22,8 @@ function Form3(props) {
           <div className="icon-2">f</div>
           <div className="icon-3">s</div>
         </div>
-        {buttonError}
+        {errors.buttonError}
+        {errors.inputList}
         <div className="form-inputs">
           <Grid>
             <MDBBtn

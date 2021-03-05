@@ -3,12 +3,12 @@ import InputGroup from "react-bootstrap/InputGroup";
 import TextField from "@material-ui/core/TextField";
 
 function Form2(props) {
-  const { values, handleChange, hourlyError } = props;
+  const { values, handleChange, errors } = props;
   return (
     <div className="container form-container">
       <form noValidate autoComplete="off">
-        <div class="row">
-          <div class="col-xs-6 col-lg-6 col-md-4">
+        <div className="row">
+          <div className="col-xs-6 col-lg-6 col-md-4">
             <TextField
               type="number"
               required
@@ -16,17 +16,15 @@ function Form2(props) {
               className="looking-for"
               label="HourlyRate"
               name="hourlyRate"
-              min="10"
-              max="100"
               inputProps={{ minlength: 10, maxLength: 20 }}
               onChange={handleChange("hourlyRate")}
               defaultValue={values.hourlyRate}
               placeholder="Enter Value..."
               variant="outlined"
-              helperText={hourlyError}
+              helperText={values.hourlyRate < 10 ? errors.timeError : ""}
             />
           </div>
-          <div class="col-xs-6 col-lg-6 col-md-4">
+          <div className="col-xs-6 col-lg-6 col-md-4">
             <TextField
               type="date"
               id="outlined-helperText"
@@ -40,8 +38,8 @@ function Form2(props) {
             />
           </div>
         </div>
-        <div class="row">
-          <div class="col-xs-6 col-lg-6 col-md-4">
+        <div className="row">
+          <div className="col-xs-6 col-lg-6 col-md-4">
             <TextField
               type="text"
               id="outlined-helperText"
@@ -54,7 +52,7 @@ function Form2(props) {
               variant="outlined"
             />
           </div>
-          <div class="col-xs-6 col-lg-6 col-md-4">
+          <div className="col-xs-6 col-lg-6 col-md-4">
             <TextField
               id="outlined-helperText"
               className="experiance-input"
@@ -68,7 +66,7 @@ function Form2(props) {
           </div>
         </div>
         <div className="row">
-          <div class="col-xs-4 col-lg-12 col-md-6">
+          <div className="col-xs-4 col-lg-12 col-md-6">
             <TextField
               classes={{ root: "job-description" }}
               id="outlined-helperText"

@@ -56,23 +56,26 @@ function App() {
     numberofDays: "",
     numberofHours: "",
     time: "",
-    error: "",
-    HouryError: "",
+    error: {
+      titleFiled: "",
+      experianceField: "",
+      imageField: "",
+      timeError: "",
+      buttonError: "",
+    },
     inputValues: [],
-    buttonError: "",
   });
 
   function getSteps() {
     return ["Job Information", "Candidate Type", "Shift Timings"];
   }
 
-  function getStepContent(stepIndex) {
-    switch (stepIndex) {
+  function getStepContent(activeStep) {
+    switch (activeStep) {
       case 0:
         return (
           <Step1
             errors={formValues.error}
-            // register={register}
             values={formValues}
             handleChange={handleChange}
           />
@@ -81,7 +84,6 @@ function App() {
         return (
           <Step2
             errors={formValues.error}
-            hourlyError={formValues.HouryError}
             values={formValues}
             handleChange={handleChange}
           />
@@ -94,7 +96,7 @@ function App() {
             values={formValues}
             onBtnClick={onBtnClick}
             OnInputChange={OnInputChange}
-            buttonError={formValues.buttonError}
+            // buttonError={formValues.buttonError}
           />
         );
       default:
@@ -110,11 +112,27 @@ function App() {
       formValues.jobExperiance === "" ||
       formValues.image === ""
     ) {
-      let err = <p className="error">Please fill the Required Field First</p>;
-      setFormValues((prevState) => ({ ...prevState, error: err }));
-    } else if (activeStep === 1 && formValues.hourlyRate < 10) {
-      let hEror = <p className="error">Select greater than 10 digit</p>;
-      setFormValues((prevState) => ({ ...prevState, HouryError: hEror }));
+      let titleError = <p className="error">Title Field Required! </p>;
+      let ImageError = <p className="error">Image Field Required!</p>;
+      let ExperianceField = (
+        <p className="error">Experiance Field Required! </p>
+      );
+      setFormValues((prevState) => ({
+        ...prevState,
+        error: {
+          titleFiled: titleError,
+          imageField: ImageError,
+          experianceField: ExperianceField,
+        },
+      }));
+    } else if ((activeStep === 1 && formValues.hourlyRate < 10) || 0) {
+      let TimeError = <p className="error">Select greater than 10 digit</p>;
+      setFormValues((prevState) => ({
+        ...prevState,
+        error: {
+          timeError: TimeError,
+        },
+      }));
     } else {
       setActiveStep((prevActiveStep) => prevActiveStep + 1);
     }
@@ -123,6 +141,7 @@ function App() {
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
+
   const handleReset = () => {
     setActiveStep(0);
   };
@@ -135,14 +154,23 @@ function App() {
   };
 
   const onBtnClick = (value) => {
-    setFormValues({
-      ...formValues,
-      inputValues: [...formValues.inputValues, { day: value }],
-    });
+    let btnError = <p className="error">Only Two Days can be Selected</p>;
+    let maxLength = formValues.inputValues;
+
+    if (maxLength.length > 1) {
+      setFormValues({
+        ...formValues,
+        error: { buttonError: btnError },
+      });
+    } else {
+      setFormValues({
+        ...formValues,
+        inputValues: [...formValues.inputValues, { day: value }],
+      });
+    }
   };
 
   const OnInputChange = (timeinfo) => {
-    console.log("time info", formValues.inputValues);
     setFormValues({
       ...formValues,
       inputValues: [
@@ -155,7 +183,7 @@ function App() {
     });
   };
 
-  const handleSubmit = () => {
+  const handleSubmitForm = () => {
     setList(formValues);
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
@@ -170,8 +198,8 @@ function App() {
           </div>
           <hr className="info-line" />
           <div className="card-sub-cotainer">
-            <div className="steps-info">Step {activeStep} of 2</div>
-            <div className="step-rectangle-container" activeStep={activeStep}>
+            <div className="steps-info">Step {activeStep} of 3</div>
+            <div className="step-rectangle-container">
               {steps.map((label, index) => {
                 let activeclass = index === activeStep ? "active" : "";
                 return (
@@ -187,7 +215,7 @@ function App() {
             {activeStep === steps.length ? (
               <div>
                 <Typography className={classes.instructions}>
-                  All steps completed
+                  All Steps Completed
                 </Typography>
                 <Button onClick={handleReset}>Reset</Button>
               </div>
@@ -209,7 +237,7 @@ function App() {
                     color="primary"
                     onClick={
                       activeStep === steps.length - 1
-                        ? handleSubmit
+                        ? handleSubmitForm
                         : handleNext
                     }
                     className="next-button"
