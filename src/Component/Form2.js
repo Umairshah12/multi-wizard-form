@@ -1,84 +1,82 @@
 import React from "react";
-import InputGroup from "react-bootstrap/InputGroup";
 import TextField from "@material-ui/core/TextField";
+import { makeStyles } from "@material-ui/core/styles";
+import InputLabel from "@material-ui/core/InputLabel";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
 
 function Form2(props) {
-  const { values, handleChange, errors } = props;
+  const { values, handleChange, errors, genderSelect, persons } = props;
+
   return (
-    <div className="container form-container">
+    <div className="form-container">
       <form noValidate autoComplete="off">
-        <div className="row">
-          <div className="col-xs-6 col-lg-6 col-md-4">
-            <TextField
-              type="number"
-              required
-              id="hourLength"
-              className="looking-for"
-              label="HourlyRate"
-              name="hourlyRate"
-              inputProps={{ minlength: 10, maxLength: 20 }}
-              onChange={handleChange("hourlyRate")}
-              defaultValue={values.hourlyRate}
-              placeholder="Enter Value..."
-              variant="outlined"
-              helperText={values.hourlyRate < 10 ? errors.timeError : ""}
-            />
-          </div>
-          <div className="col-xs-6 col-lg-6 col-md-4">
-            <TextField
-              type="date"
-              id="outlined-helperText"
-              className="experiance-input"
-              label="Experiance Start Date"
-              name="experianceStartDate"
-              onChange={handleChange("experianceStartDate")}
-              defaultValue={values.experianceStartDate}
-              placeholder="Enter Value..."
-              variant="outlined"
-            />
-          </div>
+        <div className="input-row">
+          <TextField
+            type="number"
+            required
+            id="hourLength"
+            className="input-class"
+            label="HourlyRate"
+            name="hourlyRate"
+            inputProps={{ minlength: 10, maxLength: 20 }}
+            onChange={handleChange("hourlyRate")}
+            defaultValue={values.hourlyRate}
+            placeholder="Enter Value..."
+            variant="outlined"
+            helperText={values.hourlyRate < 10 ? errors.timeError : ""}
+          />
+
+          <TextField
+            type="date"
+            id="outlined-helperText"
+            className="input-class"
+            // label="Experiance Start Date"
+            name="experianceStartDate"
+            onChange={handleChange("experianceStartDate")}
+            defaultValue={values.experianceStartDate}
+            // placeholder="Enter Value..."
+            variant="outlined"
+          />
+
+          <TextField
+            type="text"
+            id="outlined-helperText"
+            className="input-class"
+            label="Career Level"
+            name="carrerLevel"
+            onChange={handleChange("carrerLevel")}
+            defaultValue={values.carrerLevel}
+            placeholder="Enter Value..."
+            variant="outlined"
+          />
+
+          <FormControl variant="outlined" className="input-class">
+            <InputLabel htmlFor="age-native-simple">Gender</InputLabel>
+
+            <Select value={values.gender} onChange={handleChange("gender")}>
+              {persons.map((res) => (
+                <MenuItem value={res.name} key={res.name}>
+                  {res.name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
         </div>
-        <div className="row">
-          <div className="col-xs-6 col-lg-6 col-md-4">
-            <TextField
-              type="text"
-              id="outlined-helperText"
-              className="looking-for"
-              label="Career Level"
-              name="carrerLevel"
-              onChange={handleChange("carrerLevel")}
-              defaultValue={values.carrerLevel}
-              placeholder="Enter Value..."
-              variant="outlined"
-            />
-          </div>
-          <div className="col-xs-6 col-lg-6 col-md-4">
-            <TextField
-              id="outlined-helperText"
-              className="experiance-input"
-              label="Gender"
-              name="gender"
-              onChange={handleChange("gender")}
-              defaultValue={values.gender}
-              placeholder="Enter Value..."
-              variant="outlined"
-            />
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-xs-4 col-lg-12 col-md-6">
-            <TextField
-              classes={{ root: "job-description" }}
-              id="outlined-helperText"
-              label="Equipment Specification"
-              variant="outlined"
-              name="equipmentSpecification"
-              onChange={handleChange("equipmentSpecification")}
-              defaultValue={values.equipmentSpecification}
-              multiline
-              rows={8}
-            />
-          </div>
+
+        <div className="input-row">
+          <TextField
+            className="job-description"
+            id="outlined-helperText"
+            label="Equipment Specification"
+            variant="outlined"
+            name="equipmentSpecification"
+            onChange={handleChange("equipmentSpecification")}
+            defaultValue={values.equipmentSpecification}
+            multiline
+            rows={8}
+          />
         </div>
       </form>
     </div>

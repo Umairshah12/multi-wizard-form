@@ -1,157 +1,73 @@
-import React from "react";
-import { MDBBtn } from "mdbreact";
-import TimeRangePicker from "@wojtekmaj/react-timerange-picker";
-import { Grid } from "@material-ui/core";
+import React, { useState, useEffect } from "react";
+import "antd/dist/antd.css"; // or 'antd/dist/antd.less'
+import moment from "moment";
+import { Button } from "@material-ui/core";
+import { TimePicker } from "antd";
+import Typography from "@material-ui/core/Typography";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+toast.configure();
 
 function Form3(props) {
-  const { values, OnInputChange, errors, onBtnClick } = props;
+  const {
+    values,
+    OnInputChange,
+    errors,
+    onBtnClick,
+    Objects,
+    ToggleObjectStyles,
+    ToggleActive,
+  } = props;
+
   return (
     <>
-      <div className="form-heading">Schedule working days & timings</div>
-      <div>
-        <hr className="form-line" />
+      <div className="form-heading">
+        <Typography variant="h5" gutterBottom>
+          Schedule working days & timings
+        </Typography>
       </div>
+      <hr className="form-line" />
 
-      <div className="form-actions">
+      <div className="form-icons">
         <div className="action-list">
-          <div className="icon-1">s</div>
-          <div className="icon-2">M</div>
+          <div className="icon-1">S</div>
           <div className="icon-2">T</div>
           <div className="icon-2">W</div>
-          <div className="icon-2">t</div>
-          <div className="icon-2">f</div>
-          <div className="icon-3">s</div>
+          <div className="icon-2">T</div>
+          <div className="icon-2">F</div>
+          <div className="icon-1">S</div>
         </div>
-        {errors.buttonError}
-        {errors.inputList}
-        <div className="form-inputs">
-          <Grid>
-            <MDBBtn
-              outline
-              onClick={() => {
-                onBtnClick("Sunday");
-              }}
-              className="sunday-input-btn"
-            >
-              Sunday
-            </MDBBtn>
-            <TimeRangePicker
-              className="sunday-input"
-              onChange={(value) => {
-                OnInputChange(value);
-              }}
-            />
-          </Grid>
-          <Grid>
-            <MDBBtn
-              outline
-              onClick={() => {
-                onBtnClick("Monday");
-              }}
-              className="other-input-btn"
-            >
-              Monday
-            </MDBBtn>
-            <TimeRangePicker
-              className="other-input"
-              onChange={(value) => {
-                OnInputChange(value);
-              }}
-              // value={values.mondayInput}
-            />
-          </Grid>
-        </div>
+      </div>
+      {errors.HoursCheckError ? errors.HoursCheckError : ""}
+      <div className="third-form-container">
+        <div className="thirdform-input-row">
+          {Objects.map((res, index) => {
+            return (
+              <>
+                <Button
+                  onClick={() => {
+                    onBtnClick(res.daysName, index);
+                    ToggleActive(index);
+                  }}
+                  className={`input-classes-btn ${ToggleObjectStyles(index)}`}
+                  disabled={res.block ? true : false}
+                >
+                  {res.daysName}
+                </Button>
 
-        <div className="form-inputs">
-          <Grid>
-            <MDBBtn
-              onClick={() => {
-                onBtnClick("Tuesday");
-              }}
-              outline
-              className="other-input-btn"
-            >
-              Tuesday
-            </MDBBtn>
-            <TimeRangePicker
-              className="list-inputs"
-              onChange={(value) => {
-                OnInputChange(value);
-              }}
-            />
-
-            <MDBBtn
-              outline
-              onClick={() => {
-                onBtnClick("Wednesday");
-              }}
-              className="other-input-btn"
-            >
-              Wednesday
-            </MDBBtn>
-            <TimeRangePicker
-              className="other-input"
-              onChange={(value) => {
-                OnInputChange(value);
-              }}
-            />
-          </Grid>
-        </div>
-
-        <div className="form-inputs">
-          <Grid>
-            <MDBBtn
-              onClick={() => {
-                onBtnClick("Thursday");
-              }}
-              outline
-              className="other-input-btn"
-            >
-              Thursday
-            </MDBBtn>
-            <TimeRangePicker
-              className="list-inputs"
-              onChange={(value) => {
-                OnInputChange(value);
-              }}
-            />
-
-            <MDBBtn
-              outline
-              onClick={() => {
-                onBtnClick("Friday");
-              }}
-              className="other-input-btn"
-            >
-              Friday
-            </MDBBtn>
-            <TimeRangePicker
-              className="other-input"
-              onChange={(value) => {
-                OnInputChange(value);
-              }}
-            />
-          </Grid>
-        </div>
-
-        <div className="form-inputs">
-          <Grid>
-            <MDBBtn
-              outline
-              onClick={() => {
-                onBtnClick("Saturday");
-              }}
-              className="sunday-input-btn"
-            >
-              Saturday
-            </MDBBtn>
-            <TimeRangePicker
-              className="sunday-input"
-              onChange={(value) => {
-                OnInputChange(value);
-              }}
-            />
-          </Grid>
+                <TimePicker.RangePicker
+                  onChange={(value) => {
+                    OnInputChange(value, index);
+                  }}
+                  className="input-classes"
+                  value={[moment(res.timeInfo[0]), moment(res.timeInfo[1])]}
+                  disabled={res.block ? "disabled" : ""}
+                  use12Hours
+                  format="h:mm a"
+                />
+              </>
+            );
+          })}
         </div>
       </div>
     </>

@@ -1,0 +1,213 @@
+{
+  "users": [
+    {
+      "jobtitle": "Programmer",
+      "jobExperiance": "30 Year",
+      "education": "Software Engineering",
+      "skills": "Programming",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget tellus id elit fermentum molestie. Vestibulum sit amet elit eget mi auctor porttitor. ",
+      "image": "C:\\fakepath\\160b743a-293d-43dc-8c94-5f7a1ae282d6.jpg",
+      "hourlyRate": "10",
+      "experianceStartDate": "2021-03-11",
+      "carrerLevel": "B",
+      "gender": "Female",
+      "equipmentSpecification": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget tellus id elit fermentum molestie. Vestibulum sit amet elit eget mi auctor porttitor. ",
+      "time": "",
+      "error": {
+        "HoursCheckError": ""
+      },
+      "Objects": [
+        {
+          "daysName": "Sunday",
+          "toggled": false,
+          "days": "",
+          "block": true,
+          "time": {
+            "strTime": "",
+            "endTime": ""
+          },
+          "timeInfo": []
+        },
+        {
+          "daysName": "Monday",
+          "toggled": true,
+          "days": {
+            "value": "Monday"
+          },
+          "block": false,
+          "time": {
+            "strTime": "2:12:26 AM",
+            "endTime": "11:12:26 PM"
+          },
+          "timeInfo": [
+            "2021-03-22T09:12:26.979Z",
+            "2021-03-23T06:12:26.979Z"
+          ]
+        },
+        {
+          "daysName": "Tuesday",
+          "toggled": false,
+          "days": "",
+          "block": false,
+          "time": {
+            "strTime": "",
+            "endTime": ""
+          },
+          "timeInfo": []
+        },
+        {
+          "daysName": "Wednesday",
+          "toggled": true,
+          "days": {
+            "value": "Wednesday"
+          },
+          "block": false,
+          "time": {
+            "strTime": "9:00:59 AM",
+            "endTime": "6:00:59 PM"
+          },
+          "timeInfo": [
+            "2021-03-22T16:00:59.560Z",
+            "2021-03-23T01:00:59.560Z"
+          ]
+        },
+        {
+          "daysName": "Thursday",
+          "toggled": false,
+          "days": "",
+          "block": false,
+          "time": {
+            "strTime": "",
+            "endTime": ""
+          },
+          "timeInfo": []
+        },
+        {
+          "daysName": "Friday",
+          "toggled": false,
+          "days": "",
+          "block": false,
+          "time": {
+            "strTime": "",
+            "endTime": ""
+          },
+          "timeInfo": []
+        },
+        {
+          "daysName": "Saturday",
+          "toggled": false,
+          "days": "",
+          "block": true,
+          "time": {
+            "strTime": "",
+            "endTime": ""
+          },
+          "timeInfo": []
+        }
+      ],
+      "id": 1
+    },
+    {
+      "jobtitle": "Software Eng",
+      "jobExperiance": "20 year",
+      "education": "Software Engineering",
+      "skills": "Programming",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget tellus id elit fermentum molestie. Vestibulum sit amet elit eget mi auctor porttitor. ",
+      "image": "C:\\fakepath\\images (4).jpg",
+      "hourlyRate": "10",
+      "experianceStartDate": "2021-03-02",
+      "carrerLevel": "A",
+      "gender": "Male",
+      "equipmentSpecification": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget tellus id elit fermentum molestie. Vestibulum sit amet elit eget mi auctor porttitor. ",
+      "time": "",
+      "error": {
+        "HoursCheckError": ""
+      },
+      "Objects": [
+        {
+          "daysName": "Sunday",
+          "toggled": false,
+          "days": "",
+          "block": true,
+          "time": {
+            "strTime": "",
+            "endTime": ""
+          },
+          "timeInfo": []
+        },
+        {
+          "daysName": "Monday",
+          "toggled": true,
+          "days": {
+            "value": "Monday"
+          },
+          "block": false,
+          "time": {
+            "strTime": "9:00:55 AM",
+            "endTime": "6:00:55 PM"
+          },
+          "timeInfo": [
+            "2021-03-22T16:00:55.697Z",
+            "2021-03-23T01:00:55.697Z"
+          ]
+        },
+        {
+          "daysName": "Tuesday",
+          "toggled": false,
+          "days": "",
+          "block": false,
+          "time": {
+            "strTime": "",
+            "endTime": ""
+          },
+          "timeInfo": []
+        },
+        {
+          "daysName": "Wednesday",
+          "toggled": false,
+          "days": "",
+          "block": false,
+          "time": {
+            "strTime": "",
+            "endTime": ""
+          },
+          "timeInfo": []
+        },
+        {
+          "daysName": "Thursday",
+          "toggled": false,
+          "days": "",
+          "block": false,
+          "time": {
+            "strTime": "",
+            "endTime": ""
+          },
+          "timeInfo": []
+        },
+        {
+          "daysName": "Friday",
+          "toggled": false,
+          "days": "",
+          "block": false,
+          "time": {
+            "strTime": "",
+            "endTime": ""
+          },
+          "timeInfo": []
+        },
+        {
+          "daysName": "Saturday",
+          "toggled": false,
+          "days": "",
+          "block": true,
+          "time": {
+            "strTime": "",
+            "endTime": ""
+          },
+          "timeInfo": []
+        }
+      ],
+      "id": 2
+    }
+  ]
+}
