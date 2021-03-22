@@ -32,7 +32,7 @@ function Form2(props) {
             type="date"
             id="outlined-helperText"
             className="input-class"
-            // label="Experiance Start Date"
+            label="Experiance Start Date"
             name="experianceStartDate"
             onChange={handleChange("experianceStartDate")}
             defaultValue={values.experianceStartDate}

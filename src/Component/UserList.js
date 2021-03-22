@@ -117,7 +117,6 @@ function UserList(props) {
                     }}
                     color="secondary"
                   />
-
                   <Link to={`/updateuser/${item.id}`}>
                     <EditIcon className="actions-edit" color="primary" />
                   </Link>

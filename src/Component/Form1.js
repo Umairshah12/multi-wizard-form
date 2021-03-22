@@ -18,7 +18,6 @@ function Form1(props) {
             label="Looking For"
             name="jobtitle"
             value={values.jobtitle}
-            // defaultValue={values.jobtitle}
             placeholder="Enter Value..."
             variant="outlined"
             helperText={values.jobtitle ? "" : errors.titleFiled}

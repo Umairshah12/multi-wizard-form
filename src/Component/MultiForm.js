@@ -246,14 +246,6 @@ function MultiForm(props) {
     }
   };
 
-  // const TogglelinkStyles = (index) => {
-  //   if (steps.[index].toggled) {
-  //     return "makeActive";
-  //   } else {
-  //     return "input-classes-btn";
-  //   }
-  // };
-
   const onBtnClick = (value, index) => {
     let inputValuesCopy = [...formValues.Objects];
     inputValuesCopy[index].days
@@ -364,9 +356,6 @@ function MultiForm(props) {
                   All Steps Completed
                 </Typography>
                 <Button onClick={handleReset}>Reset</Button>
-                {/* <Button onClick={props.history.push("/UserList")}>
-                  User List
-                </Button> */}
               </div>
             ) : (
               <div>
@@ -399,7 +388,6 @@ function MultiForm(props) {
           </div>
         </CardContent>
       </Card>
-      {/* <UserList list={list} /> */}
     </div>
   );
 }
