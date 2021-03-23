@@ -261,11 +261,20 @@ function MultiForm(props) {
   const OnInputChange = (timeinfo, index) => {
     let strTime = timeinfo && timeinfo[0]._d.toLocaleTimeString("en-US");
     let EndTime = timeinfo && timeinfo[1]._d.toLocaleTimeString("en-US");
+    let startCheckTime = moment(timeinfo && timeinfo[0]);
+    let endCheckTime = moment(timeinfo && timeinfo[1]);
+    if (
+      startCheckTime.format("h:mm a") === endCheckTime.format("h:mm a") ||
+      startCheckTime.format("h:mm p") === endCheckTime.format("h:mm p")
+    ) {
+      alert("please select time between am and pm! ");
+    }
     let startTime = moment(timeinfo && timeinfo[0]._d);
     let endTime = moment(timeinfo && timeinfo[1]._d);
     let Timeduration = moment.duration(endTime.diff(startTime));
     let Hours = parseInt(Timeduration.asHours());
     let HoursError = <p className="error">Please select time 9 hours!</p>;
+
     let TimeCopyValues = [...formValues.Objects];
     TimeCopyValues[index].time = { strTime: strTime, endTime: EndTime };
     TimeCopyValues[index].timeInfo = timeinfo;
